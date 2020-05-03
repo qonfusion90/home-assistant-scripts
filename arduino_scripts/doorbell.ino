@@ -28,7 +28,7 @@ PubSubClient client(espClient);
 
 void setup() {
   Serial.begin(115200);
-  setup_wifi();
+
   client.setServer(mqtt_server, 1883);
 
   if (!client.connected()) {
@@ -37,9 +37,7 @@ void setup() {
 
   pinMode(DOORBELL_PRESSED_SENSOR_PIN, INPUT);
   lastDoorbellPushed = digitalRead(DOORBELL_PRESSED_SENSOR_PIN); // can be also released pin
-}
 
-void setup_wifi() {
   delay(10);
   // We start by connecting to a WiFi network
   Serial.println();
